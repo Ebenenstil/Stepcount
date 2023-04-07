@@ -1,16 +1,16 @@
 import datetime as dt
 import json
-from tkinder import *
+from tkinter import *
 
 
 
-fenster1 = tk()
+fenster1 = Tk()
 fenster1.title("Fenster 1")
 
 def abb():
     fenster1.destroy
 
-abbruch = tkinter.Button(login, text = "Abbruch", command = abb)
+abbruch = Button(fenster1, text = "Abbruch", command = abb)
 abbruch.place(x = 188, y = 90, anchor = "nw")
 
 

@@ -27,7 +27,7 @@ def button_action():
     gesamt = float(datenbank[str(dt.date.today())]) + schritte
     datenbank[str(dt.date.today())] = str(gesamt)
 
-    with open("data.json","w") as b:
+    with open("data2.json","w") as b:
         json.dump(datenbank,b)
 
 #Dictornary Datenbank wird aus JSON Datei eingelesen oder als leeres Dict.erstellt
