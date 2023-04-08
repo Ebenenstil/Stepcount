@@ -46,17 +46,6 @@ def drive_save(drive):
 def calc_drive_time(steps):
     return steps/125
 
-def show_7days_print():
-    datenbank={}
-
-    with open("data01.json","r") as f:
-        datenbank = json.load(f)
-
-    print(datenbank)
-
-#data = {'Name': ['a', 'b', 'c'], 'Age': [10, 11, 12]}
-
-
 def show_data():
     heute = str(dt.date.today())
     datenbank={}
@@ -69,3 +58,13 @@ def show_7days_chart():
     with open("alles.json","r") as f:
         json.load(datenbank,f)
     df = pd.DataFrame(datenbank)
+
+def show_7days_print():
+    datenbank={}
+
+    with open("data01.json","r") as f:
+        datenbank = json.load(f)
+
+    print(datenbank)
+
+#data = {'Name': ['a', 'b', 'c'], 'Age': [10, 11, 12]}
