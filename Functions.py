@@ -3,10 +3,11 @@ import datetime as dt
 import pandas as pd
 
 def steps_save(steps):
+    datei = "test.json"
     datentank = {}
     datum = str(dt.date.today())
     try:
-        with open("data01.json", "r") as f:
+        with open(datei, "r") as f:
             datenbank = json.load(f)
     except:
         datenbank ={}   
@@ -16,18 +17,17 @@ def steps_save(steps):
         datenbank[datum] = steps  
     else:
         datenbank.update({datum: steps})
-        
 
-
-    with open("data01.json","w") as b:
+    with open(datei,"w") as b:
         json.dump(datenbank,b)
 
 def drive_save(drive):
+    datei = "test.json"
     datentank = {}
     datum = str(dt.date.today())
     schritte = drive*125
     try:
-        with open("data01.json", "r") as f:
+        with open(datei, "r") as f:
             datenbank = json.load(f)
     except:
         datenbank ={}   
@@ -40,31 +40,35 @@ def drive_save(drive):
         
 
 
-    with open("data01.json","w") as b:
+    with open(datei,"w") as b:
         json.dump(datenbank,b)
 
 def calc_drive_time(steps):
     return steps/125
 
 def show_data():
+    datei = "test.json"
     heute = str(dt.date.today())
     datenbank={}
 
-    with open("data01.json","r") as f:
+    with open(datei,"r") as f:
         datenbank = json.load(f)
     return datenbank[heute]
 
 def show_7days_chart():
-    with open("alles.json","r") as f:
-        json.load(datenbank,f)
-    df = pd.DataFrame(datenbank)
-
-def show_7days_print():
-    datenbank={}
-
-    with open("data01.json","r") as f:
+    datenbank ={}
+    datei = "test.json"
+    with open(datei,"r") as f:
         datenbank = json.load(f)
 
-    print(datenbank)
+    df = pd.DataFrame.from_dict(datenbank, orient='index')
+    return df
+  
+def show_7days_print():
+    datei = "test.json"
+    datenbank={}
 
-#data = {'Name': ['a', 'b', 'c'], 'Age': [10, 11, 12]}
+    with open(datei,"r") as f:
+        datenbank = json.load(f)
+
+    return(datenbank)
