@@ -3,9 +3,9 @@ from tkinter import *
 import datetime as dt
 from Functions import *
 
-farbstil ="#6BB8F0"
+farbstil ="#39D8ED"
 schrift = "Impact"
-schrift_farbe = "white"
+schrift_farbe = "#175DF5"
 
 hauptfenster = Tk()
 hauptfenster.iconbitmap("kyubi.ico")
