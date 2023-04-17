@@ -2,8 +2,29 @@ import json
 import datetime as dt
 import pandas as pd
 
+now = dt.datetime.now()
+global wochentag
+wochentag = now.strftime("%A")
+if wochentag == "Monday":
+    wochentag = "Montag"
+elif wochentag == "Tuesday":
+    wochentag = "Dienstag"
+elif wochentag == "Wednesday":
+    wochentag = "Mittwoch"
+elif wochentag == "Thursday":
+    wochentag = "Donnerstag"
+elif wochentag == "Friday":
+    wochentag = "Freitag"
+elif wochentag == "Saturday":
+    wochentag = "Samstag"
+elif wochentag == "Sunday":
+    wochentag = "Sonntag"
+
+
+
 global datei 
-datei = "test.json"
+datei = "history.json"
+
 
 def steps_save(steps):
     datentank = {}
@@ -13,15 +34,18 @@ def steps_save(steps):
             datenbank = json.load(f)
     except:
         datenbank ={}   
-
-    if datum in datenbank:
-        steps += datenbank.get(datum)
-        datenbank[datum] = steps  
+    
+    if datenbank[wochentag]["Datum"] == datum:
+        datenbank[wochentag]["Gehen"] += steps
+        datenbank[wochentag]["Gesamt"] = datenbank[wochentag]["Gehen"] + datenbank[wochentag]["Fahren"]
     else:
-        datenbank.update({datum: steps})
+        datenbank[wochentag]["Datum"] = datum
+        datenbank[wochentag]["Gehen"] = steps 
+        datenbank[wochentag]["Gesamt"] = datenbank[wochentag]["Gehen"] + datenbank[wochentag]["Fahren"]  
 
     with open(datei,"w") as b:
         json.dump(datenbank,b)
+
 
 def drive_save(drive):
     datentank = {}
@@ -33,11 +57,15 @@ def drive_save(drive):
     except:
         datenbank ={}   
 
-    if datum in datenbank:
-        schritte += datenbank.get(datum)
-        datenbank[datum] = schritte
+    if datenbank[wochentag]["Datum"] == datum:
+        datenbank[wochentag]["Fahren"] += schritte
+
+        datenbank[wochentag]["Gesamt"] = datenbank[wochentag]["Gehen"] + datenbank[wochentag]["Fahren"]
     else:
-        datenbank.update({datum: schritte})
+        datenbank[wochentag]["Datum"] = datum
+        datenbank[wochentag]["Fahren"] = schritte
+        datenbank[wochentag]["Gesamt"] = datenbank[wochentag]["Gehen"] + datenbank[wochentag]["Fahren"]  
+
         
     with open(datei,"w") as b:
         json.dump(datenbank,b)
@@ -48,10 +76,11 @@ def calc_drive_time(steps):
 def show_data():
     heute = str(dt.date.today())
     datenbank={}
-
-    with open(datei,"r") as f:
+    with open(datei, "r") as f:
         datenbank = json.load(f)
-    return datenbank[heute]
+
+    
+  
 
 def show_7days_chart():
     datenbank ={}
@@ -68,3 +97,5 @@ def show_7days_print():
         datenbank = json.load(f)
 
     return(datenbank)
+
+print(show_data)

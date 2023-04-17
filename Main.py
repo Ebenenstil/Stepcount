@@ -22,7 +22,7 @@ def steps():
 
     steps_label = Label(window1, text=" Wieviele Schritte habe ich gemacht ?", bg= farbstil, font=schrift, fg=schrift_farbe)
     steps_eingabe = Entry(window1, bd=5, width=40, bg = "white")
-    steps_berechnen = Button(window1, text = "Speichern", command=steps_save(steps_eingabe.get()), bg= farbstil)
+    steps_berechnen = Button(window1, text = "Speichern", command=steps_save(steps_eingabe.get()),bg= farbstil)
 
     steps_label.grid(row =0 , column=0, padx=10, pady= 10)
     steps_eingabe.grid(row = 1, column=0,  padx=10, pady= 10)
