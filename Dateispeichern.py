@@ -5,4 +5,4 @@ from Functions import *
 
 
 
-show_7days_print
+print(show_7days_print())

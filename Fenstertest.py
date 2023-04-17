@@ -1,7 +1,13 @@
 from tkinter import * #Import für Fenstersteuerung
 import datetime as dt #Import für Datumsfunktion
 import json           #Import für Datenspeicherung : Json
+import os
+import sys
 
+if os.environ.get("Display","") =="":
+    print("no display found. Using :0.0")
+    os.environ.__setitem__("Display", ":0.0")
+    
 #Funktion zum Umrechnen von Fahrzeit zu Schritten
 def umrechnung(eingabe):
     return(float(eingabe)*125)

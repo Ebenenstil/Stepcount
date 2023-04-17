@@ -2,8 +2,10 @@ import json
 import datetime as dt
 import pandas as pd
 
+global datei 
+datei = "test.json"
+
 def steps_save(steps):
-    datei = "test.json"
     datentank = {}
     datum = str(dt.date.today())
     try:
@@ -22,7 +24,6 @@ def steps_save(steps):
         json.dump(datenbank,b)
 
 def drive_save(drive):
-    datei = "test.json"
     datentank = {}
     datum = str(dt.date.today())
     schritte = drive*125
@@ -38,8 +39,6 @@ def drive_save(drive):
     else:
         datenbank.update({datum: schritte})
         
-
-
     with open(datei,"w") as b:
         json.dump(datenbank,b)
 
@@ -47,7 +46,6 @@ def calc_drive_time(steps):
     return steps/125
 
 def show_data():
-    datei = "test.json"
     heute = str(dt.date.today())
     datenbank={}
 
@@ -57,7 +55,6 @@ def show_data():
 
 def show_7days_chart():
     datenbank ={}
-    datei = "test.json"
     with open(datei,"r") as f:
         datenbank = json.load(f)
 
@@ -65,7 +62,6 @@ def show_7days_chart():
     return df
   
 def show_7days_print():
-    datei = "test.json"
     datenbank={}
 
     with open(datei,"r") as f:
