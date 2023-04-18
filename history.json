@@ -1,15 +1,15 @@
 {
     "Montag": {
-        "Datum": "2023-04-17",
-        "Gehen": 555,
-        "Fahren": 13986,
-        "Gesamt": 14541
+        "Datum": "2023-04-16",
+        "Gehen": 0,
+        "Fahren": 100,
+        "Gesamt": 0
     },
     "Dienstag": {
-        "Datum": "2023-04-16",
-        "Gehen": 111,
-        "Fahren": 222,
-        "Gesamt": 333
+        "Datum": "2023-04-18",
+        "Gehen": 144,
+        "Fahren": 2500,
+        "Gesamt": 2644
     },
     "Mittwoch": {
         "Datum": "2023-04-16",

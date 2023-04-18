@@ -28,19 +28,22 @@ datei = "history.json"
 
 def steps_save(steps):
     datentank = {}
+    if steps == "":
+        steps = 0
+        
     datum = str(dt.date.today())
     try:
         with open(datei, "r") as f:
             datenbank = json.load(f)
     except:
         datenbank ={}   
-    
+
     if datenbank[wochentag]["Datum"] == datum:
-        datenbank[wochentag]["Gehen"] += steps
+        datenbank[wochentag]["Gehen"] += int(steps)
         datenbank[wochentag]["Gesamt"] = datenbank[wochentag]["Gehen"] + datenbank[wochentag]["Fahren"]
     else:
         datenbank[wochentag]["Datum"] = datum
-        datenbank[wochentag]["Gehen"] = steps 
+        datenbank[wochentag]["Gehen"] = int(steps) 
         datenbank[wochentag]["Gesamt"] = datenbank[wochentag]["Gehen"] + datenbank[wochentag]["Fahren"]  
 
     with open(datei,"w") as b:
@@ -78,7 +81,10 @@ def show_data():
     datenbank={}
     with open(datei, "r") as f:
         datenbank = json.load(f)
-
+    
+    return (datenbank[wochentag]["Gesamt"])
+   
+   
     
   
 
@@ -98,4 +104,3 @@ def show_7days_print():
 
     return(datenbank)
 
-print(show_data)

@@ -31,4 +31,10 @@ for tage in history:
 with open ("history.json","w") as file:
     json.dump(history, file)
 
+testhistory = {}
+
+with open ("history.json","r") as file:
+    testhistory=json.load(file)
+
+print(testhistory)
     
