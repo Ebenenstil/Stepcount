@@ -39,6 +39,6 @@ with open ("history.json","r") as file:
 
 print(testhistory)
     
-df = pd.DataFrame(data=testhistory)
+df = pd.DataFrame(data=testhistory,)
 
 print(df)
