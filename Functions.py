@@ -51,9 +51,11 @@ def steps_save(steps):
 
 
 def drive_save(drive):
+
     datentank = {}
     datum = str(dt.date.today())
-    schritte = drive*125
+    schritte = int(drive)*125
+    print(schritte)
     try:
         with open(datei, "r") as f:
             datenbank = json.load(f)
@@ -61,12 +63,12 @@ def drive_save(drive):
         datenbank ={}   
 
     if datenbank[wochentag]["Datum"] == datum:
-        datenbank[wochentag]["Fahren"] += schritte
+        datenbank[wochentag]["Fahren"] += int(schritte)
 
         datenbank[wochentag]["Gesamt"] = datenbank[wochentag]["Gehen"] + datenbank[wochentag]["Fahren"]
     else:
         datenbank[wochentag]["Datum"] = datum
-        datenbank[wochentag]["Fahren"] = schritte
+        datenbank[wochentag]["Fahren"] = int(schritte)
         datenbank[wochentag]["Gesamt"] = datenbank[wochentag]["Gehen"] + datenbank[wochentag]["Fahren"]  
 
         
@@ -74,7 +76,7 @@ def drive_save(drive):
         json.dump(datenbank,b)
 
 def calc_drive_time(steps):
-    return steps/125
+    return int(steps)/125
 
 def show_data():
     heute = str(dt.date.today())
