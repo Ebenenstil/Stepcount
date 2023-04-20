@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 montag = {"Datum":"2023-04-16","Gehen":0,"Fahren":0,"Gesamt":0}
@@ -41,4 +42,7 @@ print(testhistory)
     
 df = pd.DataFrame(data=testhistory,)
 
-print(df)
+
+df.plot(x='Datum', y='index_price', kind='scatter')
+plt.show()
+

@@ -3,7 +3,7 @@ from tkinter import *
 import tkinter as tk
 import datetime as dt
 from Functions import *
-
+from matplotlib import pyplot
 
 
 farbstil ="#39D8ED"
@@ -104,7 +104,7 @@ label = Label(hauptfenster,text="Wie habe ich mich heute bewegt ?", bg=farbstil,
 gehen = PhotoImage(file="gehen.png", width=100 ,height= 100)
 fahren = PhotoImage(file="drive.png", width=100 ,height= 100)
 calc= PhotoImage(file="data.png", width=100 ,height= 100)
-ergebnis = Label(hauptfenster, text=show_7days_chart(), bg= farbstil, font=schrift, fg=schrift_farbe, justify=RIGHT)
+ergebnis = Label(hauptfenster, text=show_7days_chart().plot(), bg= farbstil, font=schrift, fg=schrift_farbe, justify=RIGHT)
 
 button_steps = Button(hauptfenster, image=gehen, command=steps, bg = farbstil)
 button_drive = Button(hauptfenster, image=fahren, command=drive, bg = farbstil)
