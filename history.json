@@ -1,1 +1,44 @@
-{"Montag": {"Datum": "2023-04-16", "Gehen": 0, "Fahren": 100, "Gesamt": 0}, "Dienstag": {"Datum": "2023-04-16", "Gehen": 111, "Fahren": 222, "Gesamt": 333}, "Mittwoch": {"Datum": "2023-04-16", "Gehen": 0, "Fahren": 0, "Gesamt": 0}, "Donnerstag": {"Datum": "2023-04-16", "Gehen": 0, "Fahren": 0, "Gesamt": 0}, "Freitag": {"Datum": "2023-04-16", "Gehen": 0, "Fahren": 0, "Gesamt": 0}, "Samstag": {"Datum": "2023-04-16", "Gehen": 0, "Fahren": 0, "Gesamt": 0}, "Sonntag": {"Datum": "2023-04-23", "Gehen": 0, "Fahren": 1250, "Gesamt": 1250}}
+{
+    "Montag": {
+        "Datum": "2023-04-16",
+        "Gehen": 0,
+        "Fahren": 100,
+        "Gesamt": 0
+    },
+    "Dienstag": {
+        "Datum": "2023-04-16",
+        "Gehen": 111,
+        "Fahren": 222,
+        "Gesamt": 333
+    },
+    "Mittwoch": {
+        "Datum": "2023-04-16",
+        "Gehen": 0,
+        "Fahren": 0,
+        "Gesamt": 0
+    },
+    "Donnerstag": {
+        "Datum": "2023-04-16",
+        "Gehen": 0,
+        "Fahren": 0,
+        "Gesamt": 0
+    },
+    "Freitag": {
+        "Datum": "2023-04-16",
+        "Gehen": 0,
+        "Fahren": 0,
+        "Gesamt": 0
+    },
+    "Samstag": {
+        "Datum": "2023-04-16",
+        "Gehen": 0,
+        "Fahren": 0,
+        "Gesamt": 0
+    },
+    "Sonntag": {
+        "Datum": "2023-04-23",
+        "Gehen": 0,
+        "Fahren": 1250,
+        "Gesamt": 1250
+    }
+}
