@@ -88,7 +88,12 @@ def show_data():
    
    
     
-  
+def show_7days_dict():
+    datenbank ={}
+    with open(datei,"r") as f:
+        datenbank = json.load(f)
+
+    return datenbank
 
 def show_7days_chart():
     datenbank ={}

@@ -3,7 +3,8 @@ from tkinter import *
 import tkinter as tk
 import datetime as dt
 from Functions import *
-from matplotlib import pyplot
+#from tkintertable import TableCanvas, TableModel
+
 
 
 farbstil ="#39D8ED"
@@ -14,6 +15,8 @@ hauptfenster = Tk()
 hauptfenster.iconbitmap("kyubi.ico")
 hauptfenster.configure(bg=farbstil)
 hauptfenster.title("Stepometer für Vanny")
+#tframe = Frame(master=hauptfenster)
+
 
 
 
@@ -58,6 +61,7 @@ def drive():
     drive_eingabe.grid(row = 1, column=0,  padx=10, pady= 10)
     drive_berechnen.grid(row= 2, column= 0, padx=10, pady= 10)
 
+
   
 def left():
     window3 = Tk()
@@ -76,13 +80,26 @@ def left():
     left_label = Label(window3, text="Wieviele Schritte fehlen dir noch?", bg= farbstil, font=schrift, fg=schrift_farbe)
     left_eingabe = Entry(window3, bd=5, width=40, bg = "white", textvariable=eingabevariable)
     left_berechnen = Button(window3, text = "Speichern", command=lambda:speicher_knopf(),bg= farbstil)
-    #left_ausgabe = Label(window3, text="", bg= farbstil, font=schrift, fg=schrift_farbe)
+    #left_ausgabe = Frame(window3, text="", bg= farbstil, font=schrift, fg=schrift_farbe)
 
     left_label.grid(row =0 , column=0, padx=10, pady= 10)
     left_eingabe.grid(row = 1, column=0,  padx=10, pady= 10)
     left_berechnen.grid(row= 2, column= 0, padx=10, pady= 10)
-    
-    
+    tframe.grid(row= 3, column= 0, padx=10, pady= 10)
+
+def chart():
+    window4 = Tk()
+    window4.configure(bg=farbstil)
+    window4.title("7 Tage-Auflistung ")
+    window4.iconbitmap("kyubi.ico")
+
+    ausgabe = Label(window4, text=show_7days_chart(), bg= farbstil, font=schrift, fg=schrift_farbe, justify=RIGHT) 
+    exit_knopf = Button(window4, text = "Beenden", command=quit, bg=farbstil)
+
+    ausgabe.grid(row=0, column=0, padx=10,pady=10)
+    exit_knopf.grid(row=1,column=0, padx=10,pady=10)
+
+
 
 #def button_drive():
 #    window1 = tk.Toplevel(self)
@@ -104,19 +121,21 @@ label = Label(hauptfenster,text="Wie habe ich mich heute bewegt ?", bg=farbstil,
 gehen = PhotoImage(file="gehen.png", width=100 ,height= 100)
 fahren = PhotoImage(file="drive.png", width=100 ,height= 100)
 calc= PhotoImage(file="data.png", width=100 ,height= 100)
-ergebnis = Label(hauptfenster, text=show_7days_chart().plot(), bg= farbstil, font=schrift, fg=schrift_farbe, justify=RIGHT)
+#ergebnis = Label(hauptfenster, text=show_7days_chart(), bg= farbstil, font=schrift, fg=schrift_farbe, justify=RIGHT)
+#ergebnis = Label(hauptfenster, text=show_7days_dict(), bg= farbstil, font=schrift, fg=schrift_farbe, justify=RIGHT)
+
 
 button_steps = Button(hauptfenster, image=gehen, command=steps, bg = farbstil)
 button_drive = Button(hauptfenster, image=fahren, command=drive, bg = farbstil)
 button_calc = Button(hauptfenster, image=calc, command=left, bg= farbstil)
-button_data = Button(hauptfenster, text="Aktuelle 7 Tage anzeigen", command=quit, bg= farbstil)
+button_data = Button(hauptfenster, text="Aktuelle 7 Tage anzeigen", command=chart, bg= farbstil)
 
 label.grid(row = 0,  column = 2, padx= 10, pady=10)
 button_steps.grid(row= 1, column=0, padx= 10, pady=10)
 button_drive.grid(row= 1, column=2,padx= 10, pady=10)
 button_calc.grid(row= 1, column=3,padx= 10, pady=10)
 button_data.grid(row = 2, column=2, padx= 10, pady=10,)
-ergebnis.grid(row = 3, column=2, padx= 10, pady=10,)
+#ergebnis.grid(row = 3, column=2, padx= 10, pady=10,)
 
 
 def steps():
